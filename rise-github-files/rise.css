@@ -143,17 +143,17 @@ section{position:relative;z-index:1}
 #portfolio{background:var(--bg2)}
 .port-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px}
 .port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.port-item{border-radius:18px;overflow:hidden;position:relative;cursor:pointer;background:var(--sf);border:1px solid var(--bd);transition:border-color .3s,transform .3s;min-height:240px}
+.port-item{border-radius:18px;overflow:hidden;position:relative;cursor:pointer;background:var(--sf);border:1px solid var(--bd);transition:border-color .3s,transform .3s;min-height:280px;display:flex;flex-direction:column}
 .port-item:hover{border-color:var(--bo);transform:translateY(-4px)}
 .port-item.lg{grid-column:span 2;min-height:320px}
-.port-vis{width:100%;height:100%;min-height:inherit;position:relative;overflow:hidden;transition:transform .5s}
+.port-vis{width:100%;height:220px;position:relative;overflow:hidden;transition:transform .5s;flex-shrink:0}
 .port-item:hover .port-vis{transform:scale(1.04)}
 .port-glow{position:absolute;width:260px;height:260px;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-.port-hint{position:absolute;top:16px;right:16px;background:rgba(232,83,26,.15);border:1px solid rgba(232,83,26,.3);border-radius:100px;padding:4px 12px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#ff7a4a;opacity:0;transition:opacity .3s;z-index:2}
+.port-hint{position:absolute;top:12px;right:12px;background:rgba(232,83,26,.15);border:1px solid rgba(232,83,26,.3);border-radius:100px;padding:4px 12px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#ff7a4a;opacity:0;transition:opacity .3s;z-index:2}
 .port-item:hover .port-hint{opacity:1}
-.port-label{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(to top,rgba(7,5,8,.9) 0%,transparent 100%);z-index:2}
-.port-cat{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--or);margin-bottom:5px}
-.port-name{font-size:18px;font-weight:700;letter-spacing:-.3px}
+.port-label{padding:14px 18px;background:rgba(7,5,8,.6);backdrop-filter:blur(8px);position:relative;z-index:2}
+.port-cat{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--or);margin-bottom:3px}
+.port-name{font-size:15px;font-weight:700;letter-spacing:-.2px}
 
 /* MODAL */
 .modal-ov{position:fixed;inset:0;z-index:500;background:rgba(7,5,8,.92);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s ease}
@@ -263,3 +263,18 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding:48px 60px;z-
   .modal-body{padding:24px 24px 32px}
   .modal-name{font-size:28px}
 }
+/* â”€â”€ HERO ENTRANCE ANIMATION â”€â”€ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.hero-inner .badge   { animation: fadeInUp .7s ease both; animation-delay: .1s; }
+.hero-inner .htitle  { animation: fadeInUp .8s ease both; animation-delay: .3s; }
+.hero-inner .hsub    { animation: fadeInUp .8s ease both; animation-delay: .55s; }
+.hero-inner .hctas   { animation: fadeInUp .7s ease both; animation-delay: .75s; }
+.hero-inner .hero-cards { animation: fadeInUp .7s ease both; animation-delay: .95s; }
+.hg1 { animation: fadeIn 1.2s ease both; animation-delay: .05s; }
